@@ -19,7 +19,7 @@ variable "private_subnet_2" {
   description = "Private subnets to deploy Internal ALB"
 }
 
-variable "database_subnets" {
+variable "autoscaling_subnets" {
   type        = list
   description = "RDS Private subnets"
 }

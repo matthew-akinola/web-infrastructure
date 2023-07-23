@@ -36,7 +36,7 @@ module "security" {
   public_subnets     = [module.VPC.public_subnets-1, module.VPC.public_subnets-2]
   private_subnet_1   = module.VPC.private_subnets-1
   private_subnet_2   = module.VPC.private_subnets-2
-  database_subnets   = [module.VPC.private_subnets-3, module.VPC.private_subnets-4 ]
+  autoscaling_subnets   = [module.VPC.private_subnets-1, module.VPC.private_subnets-2]
 }
 
 
@@ -46,10 +46,10 @@ module "AutoScaling" {
   desired_capacity        = 2
   min_size                = 2
   max_size                = 2
-  web_sg            = [module.security.webserver_alb_sg]
+  web_sg                  = [module.security.webserver_alb_sg]
   webserver_alb_tgt       = module.ALB.webserver_alb_tgt
   instance_profile        = module.VPC.instance_profile
-  private_subnets          = [module.VPC.private_subnets-1, module.VPC.private_subnets-2]
+  private_subnets         = [module.VPC.private_subnets-1, module.VPC.private_subnets-2]
   keypair                 = var.keypair
 
 }
