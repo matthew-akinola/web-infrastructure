@@ -4,15 +4,16 @@ resource "aws_s3_bucket" "django_k8s_terraform_state" {
   force_destroy = true
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "backend-s3-bucket"
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform_locks"
-    encrypt        = true
-  }
-}
+#Uncomment this section after initializing your terraform to create necessary dependencies
+# terraform {
+#   backend "s3" {
+#     bucket         = "backend-s3-bucket"
+#     key            = "terraform.tfstate"
+#     region         = "us-east-1"
+#     dynamodb_table = "terraform_locks"
+#     encrypt        = true
+#   }
+# }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket                  = aws_s3_bucket.django_k8s_terraform_state.id

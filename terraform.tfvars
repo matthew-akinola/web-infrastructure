@@ -15,5 +15,6 @@ environment = "dev"
 
 webserver_ami = "ami-024e6efaf93d85776" #ubuntu ami for webserer
 
+db_name = "webserver-db"
 
 keypair = "devops"

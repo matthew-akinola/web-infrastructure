@@ -47,3 +47,8 @@ variable "name" {
 variable "environment" {
   default = "true"
 }
+
+
+variable "webserver_lb_id" {
+  type = string
+}

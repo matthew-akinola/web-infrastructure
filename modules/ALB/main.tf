@@ -14,6 +14,7 @@ resource "aws_lb" "webserver_alb" {
   
   ip_address_type    = var.ip_address_type
   load_balancer_type = var.load_balancer_type
+  depends_on = [var.vpc_id]
 }
 
 #--- create a target group for the webserverer load balancer
